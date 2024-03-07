@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_06_162444) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_07_194515) do
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "date_of_birth"
+    t.string "phone_number"
+    t.string "address"
+    t.string "credit_card"
+    t.string "email"
+    t.string "franchise"
+    t.string "status", default: "on hold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"

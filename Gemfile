@@ -31,6 +31,8 @@ gem "bootsnap", require: false
 
 gem 'jwt'
 
+gem 'smarter_csv', '~> 1.1', '>= 1.1.4'
+
 gem 'rack-cors'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
