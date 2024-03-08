@@ -12,7 +12,7 @@ class AuthService
             payload = {
                 id:result.id,
                 email:result.email,
-                exp: 1.minute.from_now.to_i
+                exp: 30.minutes.from_now.to_i
             }
             token = JWT.encode payload, SECRET_KEY, ALGORITHM
             return {
@@ -20,5 +20,10 @@ class AuthService
                 token:token
             }
         end
+    end
+
+    def self.get_current_user(token)
+        decoded = JWT.decode token, SECRET_KEY, true, {algorithm: ALGORITHM}
+        decoded[0]["id"]
     end
 end

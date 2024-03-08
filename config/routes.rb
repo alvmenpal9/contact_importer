@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       post "/login", to: "auth#login"
       resources :users, only: :create
       resources :contacts
+      resources :imports, only: [:create, :index, :show]
     end
   end
 end

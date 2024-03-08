@@ -51,3 +51,7 @@ group :development do
   # gem "spring"
 end
 
+
+gem "sidekiq", "~> 7.2"
+
+gem 'kaminari'
