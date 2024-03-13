@@ -21,8 +21,7 @@ class ImportsService
                     record.imported_by = user_id
                     record.save!
                 rescue ActiveRecord::RecordInvalid => e
-                    puts e.record.name
-                    puts e.record.errors.full_messages
+                    Error.create!(import_id:import_record.id, error: e.record.errors.full_messages, contact_name: e.record.name)
                 end
             end
         end
@@ -30,8 +29,9 @@ class ImportsService
         import_record.save!
     end
 
-    def self.get_user_imports(user_id)
-        
+    def self.send_import(import_id)
+        errors = Error.where(import_id: import_id)
+        errors
     end
 
     private
